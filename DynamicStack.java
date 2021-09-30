@@ -1,0 +1,7 @@
+/**
+ * DynamicStack
+ */
+public class DynamicStack {
+
+    
+}
