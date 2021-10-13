@@ -57,19 +57,32 @@ public class Leet_636
         {
             String info[]=log.split(":");
             
+            //when a event comes, we check if it  is an start event
             if(info[1].equals("start"))
             {   
+                //we push the start event into the stack,with its (id,start-time,sleep-time(0 by default))
                 st.push(new Pair(info[0],Integer.parseInt(info[2]),0));
             }
             else
             {
-               
-                Pair rem=st.pop();
+                //when an end event comes,
+                Pair rem=st.pop();       //we remove the top most event of the stack, because its end time has come
                 int id=Integer.parseInt(info[0]);
-                time[id]+=Integer.parseInt(info[2])-rem.time+1-rem.sleep;
-                    
+                time[id]+=Integer.parseInt(info[2])-rem.time+1-rem.sleep; //we now calculate for how much time it executed
+                
+                //in the above equation we are substracting the sleep time, beacause, the function might
+                //have gone tot he sleep mode if some new function would have come above it.
+
+                // sleep time= the time for which a function goes on stand by, because of a 
+                // new function getting added to the stack for execution, so the ycurrent function goes to sleep
+
+                //now we check if after removing the current function from the stack, if any function is 
+                //present in the stack, which would have gone to sleep, because of the function above it
                 if(st.size()>0)
                 {
+                    //so if present, then we update its sleep time, which is equal to the 
+                    //execution time of the function above it.
+                    //the sleep time helps us to calculate the exact time for which a function executed
                     st.peek().sleep+=Integer.parseInt(info[2])-rem.time+1;
                 }
             }
