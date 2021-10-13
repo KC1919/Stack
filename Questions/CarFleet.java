@@ -40,29 +40,40 @@ class CarFleet
 {
     public int carFleet(int target, int[] position, int[] speed) 
     {
+        //we make a 2-d array to store the position of a car and its time to reach the target
         double disTime[][]=new double[position.length][2];
         
         int n=disTime.length;
         
+        //we iterate over the position and speed array
         for(int i=0;i<n;i++)
         {
-            disTime[i][0]=position[i];
-            disTime[i][1]=(target-position[i])/(speed[i]*1.0);
+            disTime[i][0]=position[i];  //store the position
+            disTime[i][1]=(target-position[i])/(speed[i]*1.0);//and calculate the time for the car
+                                                              //at ith position to reach the target
         }
         
-        
+        //now we sort the array based on the positions of the car in ascending order
         Arrays.sort(disTime,(a,b)->{return (int)(a[0]-b[0]);});
         
+        //default number of fleets=1
         int fleet=1;
         
-        double prevTime=disTime[n-1][1];
+        double prevTime=disTime[n-1][1];  //we take the previous time to get added to the fleet
         
-        for(int i=n-2;i>=0;i--)
+        for(int i=n-2;i>=0;i--)  //we start to iterate from the 2nd last car
         {
-            if(disTime[i][1]>prevTime)
+            if(disTime[i][1]>prevTime)  //if the car's time ot reach the target is greater than the car ahead of it
             {
-                prevTime=disTime[i][1];
-                fleet++;
+                prevTime=disTime[i][1]; //then it would not be able to catch that car at any point of time before teh target
+                fleet++;                //so this would increase the number of fleets
+            }
+
+            else //if the time is less than or equal to the time of the car ahead ,then it would
+            {   //catch that car and will get added to the same fleet, so the number of fleet 
+                // will not increase
+
+                //nothing to do (just for explaination)
             }
         }
         
