@@ -31,60 +31,57 @@ stockSpanner.next(75);  // return 4, because the last 4 prices (including today'
 stockSpanner.next(85);  // return 6 
 */
 
-
 import java.util.Stack;
 import java.util.ArrayList;
 
-class StockSpanner
+class StockSpanner 
 {
-        ArrayList<Integer>list;
-        Stack<Integer>st;
-        
-        public StockSpanner() 
-        {
-            st=new Stack<>();
-            list=new ArrayList<>();
-        }
-        
-        public int next(int price) 
-        {
-            int span=0;
-            if(list.size()==0)
-            {
-                list.add(price);
-                st.push(0);
-                return 1;
-            }
-            else
-            {
-                if(st.size()>0)
-                {
-                    if(price>=list.get(st.peek()))
-                    {
-                        while(st.size()>0 && price>=list.get(st.peek()))
-                        {
-                            st.pop();
-                        }
-                        if(st.size()==0)
-                            span=list.size()+1;
-                        
-                        else
-                            span=list.size()-st.peek();
-                    }
-                    else
-                    {
-                        span=1;
-                    }
-                    st.push(list.size());
-                    list.add(price);
-                }
-            }
-            return span;
-        }
+    ArrayList<Integer> list;
+    Stack<Integer> st;
+
+    public StockSpanner() 
+    {
+        st = new Stack<>();
+        list = new ArrayList<>();
     }
-    
-    /**
-     * Your StockSpanner object will be instantiated and called as such:
-     * StockSpanner obj = new StockSpanner();
-     * int param_1 = obj.next(price);
-     */
+
+    public int next(int price) 
+    {
+        int span = 0;
+        if (list.size() == 0) 
+        {
+            list.add(price);
+            st.push(0);
+            return 1;
+        } 
+        else 
+        {
+            if (st.size() > 0) 
+            {
+                if (price >= list.get(st.peek())) 
+                {
+                    while (st.size() > 0 && price >= list.get(st.peek())) 
+                    {
+                        st.pop();
+                    }
+                    if (st.size() == 0)
+                        span = list.size() + 1;
+
+                    else
+                        span = list.size() - st.peek();
+                } else 
+                {
+                    span = 1;
+                }
+                st.push(list.size());
+                list.add(price);
+            }
+        }
+        return span;
+    }
+}
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * StockSpanner obj = new StockSpanner(); int param_1 = obj.next(price);
+ */
