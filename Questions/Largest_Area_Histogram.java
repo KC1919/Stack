@@ -19,7 +19,6 @@ Input: heights = [2,4]
 Output: 4
 */
 
-package Questions;
 
 import java.util.Stack;
 public class Largest_Area_Histogram {

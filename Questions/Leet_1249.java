@@ -32,7 +32,7 @@ Input: s = "(a(b(c)d)"
 Output: "a(b(c)d)"
  */
 
-package Questions;
+
 
 import java.util.*;
 class Leet_1249 {

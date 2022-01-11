@@ -28,8 +28,6 @@ Output: 0
 //and get the max area, like this we do for all rows, the finally whatever the max area we get 
 //we return that
 
-package Questions;
-
 import java.util.Stack;
 class Leet_85 {
     public int largestRectangleArea(int[] heights) 

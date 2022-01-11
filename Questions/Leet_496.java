@@ -1,5 +1,5 @@
 
-package Questions;
+
 
 import java.util.*;
 class Leet_496

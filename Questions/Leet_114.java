@@ -1,5 +1,5 @@
 
-package Questions;
+
 import java.util.LinkedList;
 public class Leet_114 
 {

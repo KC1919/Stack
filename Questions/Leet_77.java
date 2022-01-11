@@ -1,5 +1,4 @@
 
-package Questions;
 
 import java.util.Stack;
 class Leet_77

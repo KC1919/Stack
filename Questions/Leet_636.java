@@ -26,7 +26,6 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 */
 
 
-package Questions;
 
 import java.util.Stack;
 import java.util.List;

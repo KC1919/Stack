@@ -33,7 +33,6 @@ Example 2:
 Input: target = 10, position = [3], speed = [3]
 Output: 1
 */
-package Questions;
 
 import java.util.*;
 class CarFleet 
